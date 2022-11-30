@@ -7,7 +7,7 @@
 ☺️ [그루트](https://github.com/Groot-94), [주디](https://github.com/Judy-999), [예톤](https://github.com/yeeton37), [수꿍](https://github.com/Jeon-Minsu)
 
 ## 🐳 RULE
-- 주 1회 (월) 전까지 4개씩 해당 알고리즘 개념을 공부하고 및 코드를 각자 작성해옵니다.
+- 주 1회 (월) 전까지 4개씩 해당 알고리즘 개념을 공부하고 각자 코드를 작성해옵니다.
 - 준비한 내용을 바탕으로 서로 질의응답 하며 공부해온 내용을 보충하는 것을 목표로 합니다.
 - 발표 전날까지 학습 자료 준비하여 github에 Commit 합니다.
 
