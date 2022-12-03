@@ -4,7 +4,7 @@
 
 ### 시각화
 
-
+<img src="./resources/bubble-sort-001.gif">
 
 ### 특징
 - 장점
