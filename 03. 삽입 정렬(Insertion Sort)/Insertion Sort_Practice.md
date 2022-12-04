@@ -100,3 +100,24 @@ func insertionSort(_ array: [Int]) -> [Int] {
     return arr
 }
 ```
+
+### Yeton
+
+```
+func insertionSort(_ array: [Int]) -> [Int] {
+    var temp = 0
+    var tempArr = array
+    
+    for i in 0..<array.count - 1 {
+        var j = i
+        
+        while tempArr[j] > tempArr[j+1] {
+            temp = tempArr[j]
+            tempArr[j] = tempArr[j+1]
+            tempArr[j+1] = temp
+            j -= 1
+        }
+    }
+    
+    return tempArr
+}
