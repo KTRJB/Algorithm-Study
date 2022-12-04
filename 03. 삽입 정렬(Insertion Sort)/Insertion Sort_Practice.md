@@ -80,3 +80,23 @@ func insertionSort(array: [Int]) -> [Int] {
     return result
 }
 ```
+
+### Judy
+```swift
+func insertionSort(_ array: [Int]) -> [Int] {
+    var arr = array
+    
+    for i in 1..<array.count {
+        for j in 0...i {
+            if arr[i] <= arr[j] {
+                let temp = arr[i]
+                arr.remove(at: i)
+                arr.insert(temp, at: j)
+                break
+            }
+        }
+    }
+    
+    return arr
+}
+```
