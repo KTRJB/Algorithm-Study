@@ -83,3 +83,22 @@ func bubbleSort(array: [Int]) -> [Int] {
     return result
 }
 ```
+
+### Judy
+```swift
+func bubbleSort(_ array: [Int]) -> [Int] {
+    var arr = array
+
+    for _ in 0..<array.count {
+        for j in 0..<array.count-1 {
+            if arr[j] > arr[j+1] {
+                let temp = arr[j+1]
+                arr[j+1] = arr[j]
+                arr[j] = temp
+            }
+        }
+    }
+    
+    return arr
+}
+```
