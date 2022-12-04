@@ -40,3 +40,46 @@ for i in 0..<array.count {
     print(array[i])
 }
 ```
+### 그루트
+- 구현
+```swift
+func bubbleSort(array: [Int]) -> [Int] {
+    var temp = [Int]()
+    var result = array
+    
+    while result != temp {
+        temp = result
+        
+        for index in 0...result.count - 2 {
+            if result[index] > result[index + 1] {
+                let number = result[index]
+                result[index] = result[index + 1]
+                result[index + 1] = number
+            }
+        }
+    }
+    
+    return result
+}
+```
+- 설명
+```swift
+func bubbleSort(array: [Int]) -> [Int] {
+    var temp = [Int]()
+    var result = array
+    
+    while result != temp { // 정렬을 통해 변경이 되었는지를 체크하기 위함
+        temp = result
+        
+        for index in 0...result.count - 2 { // 마지막 값은 다음 다음값이 없기 때문에 비교하지 않고 마지막에서 두번째 값까지만 비교함
+            if result[index] > result[index + 1] { // 다음 값과의 크기를 하나씩 비교해가며 스위칭
+                let number = result[index]
+                result[index] = result[index + 1]
+                result[index + 1] = number
+            }
+        }
+    }
+    
+    return result
+}
+```
