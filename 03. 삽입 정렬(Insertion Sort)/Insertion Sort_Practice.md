@@ -103,7 +103,7 @@ func insertionSort(_ array: [Int]) -> [Int] {
 
 ### Yeton
 
-```
+```swift
 func insertionSort(_ array: [Int]) -> [Int] {
     var temp = 0
     var tempArr = array
