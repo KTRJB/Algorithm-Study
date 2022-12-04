@@ -102,3 +102,24 @@ func bubbleSort(_ array: [Int]) -> [Int] {
     return arr
 }
 ```
+
+### Yeton
+```swift
+func bubbleSort(array: [Int]) -> [Int] {
+    var temp = 0
+    var result = array
+    
+    for i in 0..<result.count {
+        for j in 1..<result.count - i {
+            if result[j-1] > result[j] {
+                temp = result[j-1]
+                result[j-1] = result[j]
+                result[j] = temp
+            }
+        }
+    }
+    
+    return result
+}
+```
+
