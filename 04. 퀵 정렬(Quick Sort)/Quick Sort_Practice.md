@@ -83,3 +83,34 @@ func quickSort(array: [Int]) -> [Int] {
     return quickSort(array: left) + [pivot] + quickSort(array: right) // 양쪽 left와 right의 index가 0이 될때까지 계속 반복하다 마지막으로 pivot  넣고 합친다.
 }
 ```
+
+### Judy
+```swift
+func quickSort(_ array: [Int], left: Int, right: Int) {
+    guard left < right else { return }
+    
+    var arr = array
+    var i = left, j = right
+    let pivotIndex = (left + right) / 2
+    let pivot = array[pivotIndex]
+    
+    while i <= j {
+        while arr[i] < pivot {
+            i += 1
+        }
+        
+        while arr[j] > pivot {
+            j -= 1
+        }
+        
+        if i <= j {
+            arr.swapAt(i, j)
+            i += 1
+            j -= 1
+        }
+    }
+    
+    quickSort(arr, left: left, right: j)
+    quickSort(arr, left: i, right: right)
+}
+```
