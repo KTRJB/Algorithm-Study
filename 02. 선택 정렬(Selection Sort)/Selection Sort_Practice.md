@@ -110,3 +110,26 @@ func selectionSort(array: [Int]) -> [Int] {
     return result
 }
 ```
+
+### Judy
+```swift
+func selectionSort(_ array: [Int]) -> [Int] {
+    var arr = array
+    
+    for i in 0..<array.count-1 {
+        var min = i
+        
+        for j in i..<array.count-1 {
+            if arr[min] > arr[j+1] {
+                min = j+1
+            }
+        }
+        
+        let temp = arr[i]
+        arr[i] = arr[min]
+        arr[min] = temp
+    }
+    
+    return arr
+}
+```
