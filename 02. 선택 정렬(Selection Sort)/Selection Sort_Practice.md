@@ -133,3 +133,25 @@ func selectionSort(_ array: [Int]) -> [Int] {
     return arr
 }
 ```
+
+### Yeton
+```
+func selectionSort(_ array: [Int]) -> [Int] {
+    var temp = array
+    
+    for i in 0..<array.count - 1 {
+        var current = temp[i]
+        var minIndex = i
+        
+        for j in i..<array.count - 1 {
+            if temp[minIndex] > temp[j+1] {
+                minIndex = j+1
+            }
+        }
+        
+        temp[i] = temp[minIndex]
+        temp[minIndex] = current
+    }
+    
+    return temp
+}
