@@ -62,3 +62,51 @@ for i in 0..<array.count {
 }
 
 ```
+
+### 그루트
+- 구현
+```swift
+func selectionSort(array: [Int]) -> [Int] {
+    var count = 0
+    var result = array
+    
+    while count != result.count {
+        let minIndex = count
+        
+        for index in count...result.count - 1 {
+            if result[minIndex] > result[index] {
+                let temp = result[minIndex]
+                result[minIndex] = result[index]
+                result[index] = temp
+            }
+        }
+        
+        count += 1
+    }
+    
+    return result
+}
+```
+- 설명
+```swift
+func selectionSort(array: [Int]) -> [Int] {
+    var count = 0 // 처음 값을 선택해서 시작함.
+    var result = array
+    
+    while count != result.count { // 선택된 값이 마지막 값이면 정렬이 끝났다고 생각, 빠져나감
+        let minIndex = count
+        
+        for index in count...result.count - 1 {
+            if result[minIndex] > result[index] { // 선택된 값보다 작은값이 존재하면 스위칭 
+                let temp = result[minIndex]
+                result[minIndex] = result[index]
+                result[index] = temp
+            }
+        }
+        
+        count += 1
+    }
+    
+    return result
+}
+```
