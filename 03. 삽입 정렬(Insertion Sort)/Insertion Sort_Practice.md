@@ -39,3 +39,44 @@ for i in 0..<array.count {
     print(array[i])
 }
 ```
+### 그루트
+- 구현
+```swift
+func insertionSort(array: [Int]) -> [Int] {
+    var result = array
+    
+    if result.count > 1 {
+        for insertionIndex in 1...result.count-1 {
+            for index in stride(from: insertionIndex, to: 0, by: -1) {
+                if result[index] < result[index - 1] {
+                    result.swapAt(index, index - 1)
+                } else {
+                    break
+                }
+            }
+        }
+    }
+    
+    return result
+}
+```
+- 설명
+```swift
+func insertionSort(array: [Int]) -> [Int] {
+    var result = array
+    
+    if result.count > 1 { // 비어있는 배열을 넣으면 실행하지 않도록 하기위함.
+        for insertionIndex in 1...result.count-1 { 두번째부터 시작하고 그 앞의 값과 비교하기 위함.
+            for index in stride(from: insertionIndex, to: 0, by: -1) { // stride 함수를 통해서 insertionIndex 부터 시작해서 by(-1)만큼 줄여가고 to(0)전 까지 실행하는 반복문을 구현.
+                if result[index] < result[index - 1] { 
+                    result.swapAt(index, index - 1)
+                } else {
+                    break
+                }
+            }
+        }
+    }
+    
+    return result
+}
+```
