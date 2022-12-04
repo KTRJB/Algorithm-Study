@@ -135,7 +135,7 @@ func selectionSort(_ array: [Int]) -> [Int] {
 ```
 
 ### Yeton
-```
+```swift
 func selectionSort(_ array: [Int]) -> [Int] {
     var temp = array
     
