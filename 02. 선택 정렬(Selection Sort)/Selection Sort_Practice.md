@@ -49,7 +49,7 @@ for i in 0..<array.count - 1 {
         }
     }
 
-    // 현재 인덱스에 있는 숫자가 최소값이면 위치 변견 필요 X
+    // 현재 인덱스에 있는 숫자가 최소값이면 위치 변경 필요 X
     // 그렇지 않다면 swap 작업 필요
     if i != location {
         array.swapAt(i, location)
