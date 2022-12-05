@@ -17,10 +17,11 @@
 
 ## 일정
 - 12/05: 거품 정렬(Bubble Sort), 선택 정렬(Selection Sort), 삽입 정렬(Insertion Sort), 퀵 정렬(Quick Sort)
-- 12/12: 병합 정렬(Merge Sort), 힙 정렬(Heap Sort), 기수 정렬(Radix Sort), 계수 정렬(Count Sort)
+- 12/12: 병합 정렬(Merge Sort), 힙 정렬(Heap Sort), 기수 정렬(Radix Sort)
 - 12/19: 방학
-- 12/26: 이분 탐색(Binary Search), 해시 테이블 구현, DFS & BFS, 최장 증가 수열(LIS)
-- 01/02: 최소 공통 조상(LCA), 동적 계획법(Dynamic Programming), 다익스트라(Dijkstra) 알고리즘, 비트마스크(BitMask)
+- 12/26: 계수 정렬(Count Sort), 이분 탐색(Binary Search), 해시 테이블 구현
+- 01/02: DFS & BFS, 최장 증가 수열(LIS), 최소 공통 조상(LCA)
+- 01/09: 동적 계획법(Dynamic Programming), 다익스트라(Dijkstra) 알고리즘, 비트마스크(BitMask)
 
 ## 🏝 커밋 규칙
 
