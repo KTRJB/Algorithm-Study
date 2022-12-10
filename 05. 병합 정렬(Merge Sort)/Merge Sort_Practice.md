@@ -116,3 +116,45 @@ let list = [76, 33, 21, 444, 2, 595, 99]
 print(mergeSort(list: list))
 
 ```
+
+### Judy
+```swift
+func mergeSort(_ array: [Int]) -> [Int] {
+    guard array.count > 1 else { return array }	// 부분 리스트의 요소가 하나 이상인지 확인
+    
+    let midIndex = array.count / 2	
+    let leftArray = Array(array[0..<midIndex])
+    let rightArray = Array(array[midIndex..<array.count])
+    // 가운데를 기준으로 왼쪽, 오른쪽 부분 리스트로 나눔
+    
+    return merge(left: mergeSort(leftArray), right: mergeSort(rightArray))
+    // 나눈 부분 리스트를 다시 merge sort하면서 병합
+}
+
+// 병합하는 함수
+func merge(left: [Int], right: [Int]) -> [Int] {
+    var result: [Int] = [] // 병합할 배열
+    var i = 0, j = 0
+
+    while i < left.count && j < right.count {
+        if left[i] < right[j] {	// 왼쪽, 오른쪽 부분 리스트 요소를 하나씩 비교
+            result.append(left[i])	// 더 작은 값을 병합하는 배열에 추가
+            i += 1
+        } else {
+            result.append(right[j])
+            j += 1
+        }
+    }
+    
+    // 부분 리스트의 개수가 다르면 하나가 남음
+    if i < left.count {	// 병합되지 않은 요소가 남아있으면 추가
+        result.append(left[i])
+    }
+    
+    if j < right.count {
+        result.append(right[j])
+    }
+    
+    return result
+}
+```
