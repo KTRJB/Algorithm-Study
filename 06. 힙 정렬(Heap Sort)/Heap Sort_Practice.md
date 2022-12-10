@@ -137,3 +137,30 @@ var array = [521, 13, 22, 25, 1, 999, 3]
 print(heapSort(&array))
 
 ```
+
+### Judy
+```swift
+func heapSort(_ array: [Int]) -> [Int] {
+    var arr = array
+    
+    for i in stride(from: array.count - 1, to: -1, by: -1) {
+        arr = makeMaxHeap(arr, i)	// 이미 정렬된 부분은 빼고 최대 힙으로 구성
+        arr.swapAt(0, i)	// 마지막 노드와 루트 노드를 swap -> 가장 큰수를 마지막으로
+    }
+    
+    return arr
+}
+
+// 최대 힙으로 만드는 함수
+func makeMaxHeap(_ array: [Int], _ maxIndex: Int) -> [Int] {
+    var arr = array
+    
+    for j in stride(from: maxIndex, to: 0, by: -1) { // 마지막 노드부터 비교 
+        if arr[j] > arr[j/2] {	// 부모 노드와 비교
+            arr.swapAt(j, j/2)	// 부모 노드보다 크면 swap
+        }
+    }
+    
+    return arr
+}
+```
