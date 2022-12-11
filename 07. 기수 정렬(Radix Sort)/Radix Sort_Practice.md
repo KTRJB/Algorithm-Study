@@ -146,34 +146,37 @@ func radixSort(_ array: [Int]) -> [Int] {
     let radix = 10
     var digit = 1
     var done = false
-    var index: Int
-    var buckets = Array(repeating: [], count: 10)
     
     while !done {
+        var buckets: [[Int]] = []
         done = true
         
-        for num in array {
-            index = num / digit
-            buckets[num % radix].append(num)
-            
-            if done && index > 0 {
+        for _ in 0..<radix {
+            buckets.append([])
+        }
+        
+        for num in newArr {
+            let checkToRemove = num / digit
+            buckets[checkToRemove % radix].append(num)
+
+            if done && checkToRemove > 0 {
                 done = false
             }
         }
-        
-        var index = 0
 
-        for i in 0..<radix {
-            let bucket = buckets[i]
+        var i = 0
+        for j in 0..<radix {
+            let bucket = buckets[j] // 10,20
             for number in bucket {
                 newArr[i] = number as! Int
-                index += 1
+                i += 1
             }
         }
-    
+
         digit *= radix
     }
-    
-    
+
     return newArr
 }
+
+radixSort([33, 721, 9, 11, 356, 44, 521])
