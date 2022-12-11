@@ -224,7 +224,7 @@ private func merge(_ left:[Element],_ right:[Element]) -> [Element] {
             list.append(r.removeFirst())
         }
     }
-    list.append(contentsOf: l+r)
+    list.append(l+r)
     
     return list
 }
