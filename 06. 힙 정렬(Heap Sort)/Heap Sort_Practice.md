@@ -198,3 +198,29 @@ func makeMaxHeap(_ array: [Int], _ maxIndex: Int) -> [Int] {
 
 myMaxHeapSort([1,5,20,14,7,6,30])
 ```
+
+### Groot
+```swift
+func heapSort(_ value: [Int]) -> [Int] {
+    var result = value
+    
+    for index in stride(from: result.count - 1, through: 0, by: -1) { // MaxHeap을 구성하기 위해서 루트(0) 값이 가장 커야하기 때문에 배열의 뒤에서(heap의 가장 아래부분)부터 반복시작
+        result = makeMaxHeap(result, index) // MaxHeap을 만들어줌
+        result.swapAt(0, index) // root 값이 가장 커야하기 때문에 가장 큰 값을 root로 이동
+    }
+    
+    return result
+}
+
+func makeMaxHeap(_ value: [Int], _ maxIndex: Int) -> [Int] {
+    var result = value
+    
+    for index in stride(from: maxIndex, to: 0, by: -1) { // 마찬가지로 밑에서부터 부모의 값보다 자식의 값이 크면 변경
+            if result[index] > result[index/2] {
+                result.swapAt(index, index/2)
+            }
+        }
+    
+    return result
+}
+```
