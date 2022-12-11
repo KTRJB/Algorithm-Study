@@ -158,3 +158,36 @@ func merge(left: [Int], right: [Int]) -> [Int] {
     return result
 }
 ```
+
+### Groot
+```swift
+import Foundation
+
+func mergeSort(_ value: [Int]) -> [Int] {
+    guard value.count > 1 else { return value }
+    
+    let mid = value.count / 2
+    let left = Array(value[0..<mid])
+    let right = Array(value[mid..<value.count])
+    
+    return merge(mergeSort(left), mergeSort(right))
+}
+
+func merge(_ left: [Int], _ right: [Int]) -> [Int] {
+    var left = left
+    var right = right
+    var result = [Int]()
+    
+    while !left.isEmpty && !right.isEmpty { // 둘 다 숫자를 가지고 있을 때
+        if left.first! < right.first! { // 더 작은 값을 순서대로 넣어준다.
+            result.append(left.removeFirst())
+        }else {
+            result.append(right.removeFirst())
+        }
+    }
+    
+    result.append(contentsOf: left+right) // 남은 숫자들을 추가해준다.
+    
+    return result
+}
+```
