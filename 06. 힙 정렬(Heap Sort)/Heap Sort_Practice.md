@@ -164,3 +164,37 @@ func makeMaxHeap(_ array: [Int], _ maxIndex: Int) -> [Int] {
     return arr
 }
 ```
+
+### Yeton
+```swift
+func myMaxHeapSort(_ array: [Int]) -> [Int] {
+    var newArray = array
+    
+    for i in stride(from: array.count - 1, to: -1, by: -1) {
+        newArray = makeMaxHeap(newArray, i)
+        newArray.swapAt(0, i)
+    }
+    
+    return newArray
+}
+
+func makeMaxHeap(_ array: [Int], _ maxIndex: Int) -> [Int] {
+    var newArray = array
+    
+    for j in stride(from: maxIndex, to: 0, by: -1) {
+        if j % 2 == 0 {
+            if newArray[j] > newArray[(j-1)/2] {
+                newArray.swapAt(j, (j-1)/2)
+            }
+        } else {
+            if newArray[j] > newArray[j/2] {
+                newArray.swapAt(j, j/2)
+            }
+        }
+    }
+    
+    return newArray
+}
+
+myMaxHeapSort([1,5,20,14,7,6,30])
+```
