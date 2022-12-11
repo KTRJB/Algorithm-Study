@@ -138,3 +138,42 @@ var array = [33, 721, 9, 11, 356, 44, 521]
 print(radixSort(&array))
 
 ```
+
+### Yeton
+```swift
+func radixSort(_ array: [Int]) -> [Int] {
+    var newArr = array
+    let radix = 10
+    var digit = 1
+    var done = false
+    var index: Int
+    var buckets = Array(repeating: [], count: 10)
+    
+    while !done {
+        done = true
+        
+        for num in array {
+            index = num / digit
+            buckets[num % radix].append(num)
+            
+            if done && index > 0 {
+                done = false
+            }
+        }
+        
+        var index = 0
+
+        for i in 0..<radix {
+            let bucket = buckets[i]
+            for number in bucket {
+                newArr[i] = number as! Int
+                index += 1
+            }
+        }
+    
+        digit *= radix
+    }
+    
+    
+    return newArr
+}
