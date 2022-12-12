@@ -156,8 +156,8 @@ func makeMaxHeap(_ array: [Int], _ maxIndex: Int) -> [Int] {
     var arr = array
     
     for j in stride(from: maxIndex, to: 0, by: -1) { // 마지막 노드부터 비교 
-        if arr[j] > arr[j/2] {	// 부모 노드와 비교
-            arr.swapAt(j, j/2)	// 부모 노드보다 크면 swap
+        if arr[j] > arr[(j-1)/2] {	// 부모 노드와 비교
+            arr.swapAt(j, (j-1)/2)	// 부모 노드보다 크면 swap
         }
     }
     
