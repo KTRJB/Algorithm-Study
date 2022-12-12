@@ -180,3 +180,33 @@ func radixSort(_ array: [Int]) -> [Int] {
 }
 
 radixSort([33, 721, 9, 11, 356, 44, 521])
+
+### Groot
+```swift
+func radixSort(_ value: [Int]) -> [Int] {
+    let radix = 10 // 0...9까지 숫자를 의미
+    var done = false // 언제까지 반복할 지(최대 자릿수)
+    var digits = 1 // 1의 자리 
+    var result = value 
+    
+    while !done { 
+        done = true // 첫 반복부터 완료가 됬다고 해주고, 내부에 존재하는 반복문에서 값을 변경
+        var buckets: [[Int]] = Array(repeating: [], count: radix) // 각 자릿수를 담을 버켓
+        
+        for number in result { 
+            let remainingPart = number / digits // 1의 자리 , 10의 자리 ...
+            let digit = remainingPart % radix // 각 자릿수의 index에 넣어주기 위해 나머지를 구한다.
+            buckets[digit].append(number) // 각 자릿수에 맞게 수를 할당
+            
+            if remainingPart > 0 { // remainingPart이 모두 0이면 그 자릿수의 수가 없다고 판단 -> 정렬완료(반복문 종료)
+              done = false
+            }
+        }
+
+        digits *= radix // 다음 자릿수를 비교하기 위함
+        result = buckets.flatMap { $0 } // 버켓에 있는 수를 정렬해서 결과에 넣어줌
+    }
+    
+    return result
+}
+```
