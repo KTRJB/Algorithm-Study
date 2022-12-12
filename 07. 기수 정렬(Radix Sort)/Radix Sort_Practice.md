@@ -180,6 +180,7 @@ func radixSort(_ array: [Int]) -> [Int] {
 }
 
 radixSort([33, 721, 9, 11, 356, 44, 521])
+```
 
 ### Groot
 ```swift
