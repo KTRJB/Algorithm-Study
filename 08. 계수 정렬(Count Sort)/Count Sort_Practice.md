@@ -86,19 +86,17 @@ print(countingSort(array: myArray))
 
 ```swift
 func 계수정렬(num: [Int]) -> [Int] {
-    var arr = Array(repeating: 0, count: num.max()!)
+    var arr = Array(repeating: 0, count: num.max()! + 1)
     var result: [Int] = []
-    
     num.forEach {
-        arr[$0 - 1] += 1
+        arr[$0] += 1
     }
     
     for (index, num) in arr.enumerated() {
         for _ in 0..<num {
-            result.append(index + 1)
+            result.append(index)
         }
     }
     return result
 }
-
 ```
