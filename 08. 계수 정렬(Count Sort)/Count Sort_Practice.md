@@ -81,3 +81,24 @@ let myArray = [1, 5, 4, 4, 3, 7, 3]
 // 정렬이 제대로 되는지 확인
 print(countingSort(array: myArray))
 ```
+
+## 예톤
+
+```swift
+func 계수정렬(num: [Int]) -> [Int] {
+    var arr = Array(repeating: 0, count: num.max()!)
+    var result: [Int] = []
+    
+    num.forEach {
+        arr[$0 - 1] += 1
+    }
+    
+    for (index, num) in arr.enumerated() {
+        for _ in 0..<num {
+            result.append(index + 1)
+        }
+    }
+    return result
+}
+
+```
