@@ -64,3 +64,27 @@ let array = [1, 4, 5, 8, 55, 293, 455]
 // 이진 탐색이 잘 이루어지는지 확인
 print(binarySearch(array: array, number: 8))
 ```
+
+## 예톤
+
+
+```swift
+func 이분탐색(arr: [Int], num: Int) -> Bool {
+    var start = 0
+    var end = arr.count
+    
+    while start <= end {
+        var mid = (start + end) / 2
+        
+        if arr[mid] == num {
+            return true
+        } else if arr[mid] < num {
+            start = mid + 1
+        } else if arr[mid] > num {
+            end = mid - 1
+        }
+    }
+    
+    return false
+}
+```
