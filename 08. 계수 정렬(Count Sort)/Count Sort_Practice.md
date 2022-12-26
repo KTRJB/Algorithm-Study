@@ -124,3 +124,27 @@ func countingSort(_ array: [Int]) -> [Int] {
 }
 ```
 
+## Judy
+```swift
+func countingSort(_ array: [Int], with max: Int) -> [Int] {
+    var countingArray = Array(repeating: 0, count: max + 1)
+    var sortedArray = Array(repeating: 0, count: array.count)
+    
+    for element in array {
+        countingArray[element] += 1
+    }
+    print(countingArray)
+    for i in 1..<countingArray.count {
+        countingArray[i] += countingArray[i-1]
+    }
+    print(countingArray)
+    for j in stride(from: array.count - 1, through: 0, by: -1) {
+        let sortingValue = array[j]
+        sortedArray[countingArray[sortingValue] - 1] = sortingValue
+        countingArray[sortingValue] -= 1
+        print(sortedArray)
+    }
+    
+    return sortedArray
+}
+```
