@@ -114,7 +114,7 @@ func binarySearch(_ array: [Int], number: Int) -> Bool {
 
 ## Judy
 ```swift
-func binaarySearch(_ array: [Int], target: Int) -> Int {
+func binarySearch(_ array: [Int], target: Int) -> Int {
     var start = 0
     var end = array.count - 1
     
