@@ -100,3 +100,27 @@ func 계수정렬(num: [Int]) -> [Int] {
     return result
 }
 ```
+
+## 그루트
+
+```swift
+func countingSort(_ array: [Int]) -> [Int] {
+    var tempArray = Array(repeating: 0, count: (array.max() ?? 0) + 1) // 가장 큰 값의 크기를 가진 배열을 할당
+    var result = [Int]()
+    
+    for number in array {
+        tempArray[number] += 1 // 각 값들의 개수를 배열에 저장
+    }
+    
+    for index in 0..<tempArray.count {
+        if tempArray[index] != 0 { // 0이 아닌 값들만 처리하기 위함. -> 존재하는 수만 for문을 돌림
+            for _ in 0..<tempArray[index] { 
+                result.append(index) // index 값의 개수만큼 새로운 배열에 
+            }
+        }
+    }
+    
+    return result
+}
+```
+
