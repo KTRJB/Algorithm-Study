@@ -127,22 +127,21 @@ func countingSort(_ array: [Int]) -> [Int] {
 ## Judy
 ```swift
 func countingSort(_ array: [Int], with max: Int) -> [Int] {
-    var countingArray = Array(repeating: 0, count: max + 1)
-    var sortedArray = Array(repeating: 0, count: array.count)
+    var countingArray = Array(repeating: 0, count: max + 1)	// 계수 배열
+    var sortedArray = Array(repeating: 0, count: array.count)	// 정렬된 값을 넣을 배열
     
     for element in array {
-        countingArray[element] += 1
+        countingArray[element] += 1	 // 해당 숫자인 인덱스의 값을 +1
     }
-    print(countingArray)
+    
     for i in 1..<countingArray.count {
-        countingArray[i] += countingArray[i-1]
+        countingArray[i] += countingArray[i-1]	// 누적합 배열로 만들기
     }
-    print(countingArray)
-    for j in stride(from: array.count - 1, through: 0, by: -1) {
-        let sortingValue = array[j]
-        sortedArray[countingArray[sortingValue] - 1] = sortingValue
-        countingArray[sortingValue] -= 1
-        print(sortedArray)
+    
+    for j in stride(from: array.count - 1, through: 0, by: -1) { 
+        let sortingValue = array[j]	// 정렬할 값 = 인덱스가 될 값
+        sortedArray[countingArray[sortingValue] - 1] = sortingValue	// 정렬한 배열[누적합 배열[정렬할 값] -1]
+        countingArray[sortingValue] -= 1 // 정렬했으니 해당 부분의 누적합을 -1
     }
     
     return sortedArray
