@@ -88,3 +88,26 @@ func 이분탐색(arr: [Int], num: Int) -> Bool {
     return false
 }
 ```
+
+## 그루트
+```swift
+func binarySearch(_ array: [Int], number: Int) -> Bool { 
+    let sortedArray = countingSort(array) // 먼저 배열을 정렬한다.
+    var left = 0 // 가장 작은 값으로 시작
+    var right = sortedArray.count - 1 // 가장 큰 값으로 시작
+    
+    while left <= right {  // 가장 작은 값과 큰 값이 같아지면 모두 확인했다고 판단한다.
+        let mid = (left + right) / 2 // 가장 작은 값과 큰 값의 중간값을 비교
+        
+        if number == sortedArray[mid] { // 중간 값이 찾는 값이면 true를 리턴하고 끝남.
+            return true
+        } else if number > sortedArray[mid] { // 찾는 값이 중간값보다 크면 시작점을 중간값 + 1 로 수정 -> 찾는 폭을 줄이기 위함
+            left = mid + 1
+        } else if number < sortedArray[mid] { // 찾는 값이 중간값보다 작으면 끝점을 중간값 - 1 로 수정 
+            right = mid - 1
+        }
+    }
+    
+    return false
+}
+```
