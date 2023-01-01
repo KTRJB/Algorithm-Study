@@ -98,3 +98,26 @@ getValue(forKey: "예")
 getValue(forKey: "쥬")
 ```
 
+### 예톤
+
+```swift
+var hashTable: [String?] = .init(repeating: nil, count: 3)
+
+func hash(key: Int) -> Int {
+    return key % 3 // 51060 % 3 == 0
+}
+func updateValue(_ value: String, forKey key: String) {
+    guard let key = UnicodeScalar(key)?.value else { return }
+    print("\(key) key입니돠") // 51060
+    let hashAddress = hash(key: Int(key))
+    hashTable[hashAddress] = value // hashTable의 0번째 index에 "예톤"이 저장
+}
+func getValue(forKey key: String) -> String? {
+    guard let key = UnicodeScalar(key)?.value else { return nil }
+    let hashAddress = hash(key: Int(key))
+    return hashTable[hashAddress]
+}
+
+updateValue("예톤", forKey: "이")
+getValue(forKey: "이")
+```
