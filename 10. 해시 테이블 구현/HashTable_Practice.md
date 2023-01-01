@@ -98,7 +98,7 @@ getValue(forKey: "예")
 getValue(forKey: "쥬")
 ```
 
-### 예톤
+## 예톤
 
 ```swift
 var hashTable = [String?](repeating: nil, count: 3)
