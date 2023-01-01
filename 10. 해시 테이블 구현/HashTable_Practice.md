@@ -101,7 +101,7 @@ getValue(forKey: "쥬")
 ### 예톤
 
 ```swift
-var hashTable: [String?] = .init(repeating: nil, count: 3)
+var hashTable = [String?](repeating: nil, count: 3)
 
 func hash(key: Int) -> Int {
     return key % 3 // 51060 % 3 == 0
