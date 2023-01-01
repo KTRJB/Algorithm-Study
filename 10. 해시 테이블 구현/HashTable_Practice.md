@@ -121,3 +121,43 @@ func getValue(forKey key: String) -> String? {
 updateValue("예톤", forKey: "이")
 getValue(forKey: "이")
 ```
+
+## Judy
+```swift
+class HashTable {
+    var hashTable: [Int?] = Array(repeating: nil, count: 10)
+    
+    func save(key: String, value: Int) {
+        let index = hash(with: key)
+        
+        hashTable[index] = value
+    }
+    
+    func getValue(for key: String) -> Int? {
+        let index = hash(with: key)
+        
+        return hashTable[index]
+    }
+    
+    private func hash(with key: String) -> Int {
+        let index = key.count % 10
+        
+        return index
+    }
+}
+
+let hashTable = HashTable()
+
+hashTable.save(key: "apple", value: 2)
+hashTable.save(key: "banana", value: 6)
+hashTable.save(key: "kiwi", value: 9)
+
+print(hashTable.getValue(for: "apple")) // Optional(2)
+print(hashTable.getValue(for: "banana"))    // Optional(6)
+
+hashTable.save(key: "pear", value: 7)
+print(hashTable.getValue(for: "pear"))  // Optional(7)
+
+print(hashTable.getValue(for: "watermelon")) // nil
+
+```
