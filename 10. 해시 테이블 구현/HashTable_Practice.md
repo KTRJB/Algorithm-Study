@@ -161,3 +161,43 @@ print(hashTable.getValue(for: "pear"))  // Optional(7)
 print(hashTable.getValue(for: "watermelon")) // nil
 
 ```
+
+## Groot
+```swift
+class MyHashTable<T> {
+    typealias Value = T
+    private var store = Array<Value?>(repeating: nil, count: 10)
+    
+    func setValue(key: String, value: Value) {
+        store[convertKey(with: key)] = value
+    }
+    
+    func getValue(key: String) -> Value? {
+        let index = convertKey(with: key)
+        
+        return store[index]
+    }
+    
+    private func convertKey(with key: String) -> Int {
+        guard let key = UnicodeScalar(key)?.value else { return 0 }
+        
+        return Int(key) % store.count
+    }
+}
+
+var myHashTable = MyHashTable<String>()
+myHashTable.setValue(key: "김", value: "그루트")
+myHashTable.setValue(key: "전", value: "카카오")
+myHashTable.setValue(key: "주", value: "제다이")
+myHashTable.setValue(key: "예", value: "깡패")
+myHashTable.setValue(key: "유", value: "재석")
+myHashTable.setValue(key: "이", value: "경규")
+
+
+print(myHashTable.getValue(key: "김"))
+print(myHashTable.getValue(key: "전"))
+print(myHashTable.getValue(key: "주"))
+print(myHashTable.getValue(key: "예"))
+print(myHashTable.getValue(key: "유"))
+print(myHashTable.getValue(key: "이"))
+```
