@@ -22,7 +22,7 @@
 - 12/26: 계수 정렬(Count Sort), 이분 탐색(Binary Search)
 - 01/02: 해시 테이블 구현
 - 01/09: DFS & BFS, 최장 증가 수열(LIS), 최소 공통 조상(LCA)
-- ...이후 계획 동적 계획법(Dynamic Programming), 다익스트라(Dijkstra) 알고리즘, 비트마스크(BitMask)
+- 01/16: 계획 동적 계획법(Dynamic Programming), 다익스트라(Dijkstra) 알고리즘, 비트마스크(BitMask)
 
 ## 🏝 커밋 규칙
 
